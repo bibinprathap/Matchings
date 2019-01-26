@@ -1,5 +1,5 @@
 # shoppingcart
-John Doe Enterprise 
+http://softwaredubai.com/public/index.html
 
 #SETUP
 ```
