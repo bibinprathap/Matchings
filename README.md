@@ -1,4 +1,4 @@
-# shoppingcart
+# Your Cart Demo
 http://softwaredubai.com/public/index.html
 
 #SETUP
