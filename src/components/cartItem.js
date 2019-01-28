@@ -1,30 +1,43 @@
 "use strict";
 import React from 'react';
-import {Col, Row, Panel, Button, Label, Badge} from 'react-bootstrap';
+import { Col, Row, Panel, Button, Label, Badge } from 'react-bootstrap';
 
 class CartItem extends React.Component {
-
+    totalItemCost(cartItem) {
+        return (this.props.cartItem.price * this.props.cartItem.units).toFixed(2);
+    }
     render() {
         return (
             <Panel className='cartItem'>
                 <Row>
-                    <Col xs={6} sm={6} md={6} >
-                        <h5>{this.props.cartItem.title} <Badge pullRight>Price: USD {this.props.cartItem.price}</Badge></h5>
+                    <Col xs={4} sm={4} md={4} >
+                        <h5>{this.props.cartItem.title}</h5>
                     </Col>
-                    <Col  xs={4} sm={4} md={4} >
-                        <p>units :&nbsp;
-                            <Label bsStyle='success'> {this.props.cartItem.units} </Label>
-                            &nbsp;
-                            <Button bsSize='small' onClick={() => this.props.onAddUnit()}>+</Button>
-                            <Button bsSize='small' onClick={() => this.props.onDeductUnit()}>-</Button>
+                    <Col xs={2} sm={2} md={2} >
+                        € {this.props.cartItem.price}
+                    </Col>
+                    <Col xs={2} sm={2} md={2} >
+                        <p style={{ float: "left", width: "32%" }} >
+                            <input
+                                id="units"
+                                placeholder="units"
+                                className="form-control"
+                                value={this.props.cartItem.units}
+                                onChange={e => this.props.onTextUnitChange(this.props.cartItem.id, e.target.value)}
+                            />
                         </p>
+                        <p style={{ float: "left" }}> <Button bsSize='small' onClick={() => this.props.onAddUnit()}>+</Button></p >
+                        <p style={{ float: "left" }}> <Button bsSize='small' onClick={() => this.props.onDeductUnit()}>-</Button></p >
                     </Col>
-                    <Col  xs={2} sm={2} md={2} >
+                    <Col xs={2} sm={2} md={2} >
+                        € {this.totalItemCost()}
+                    </Col>
+                    <Col xs={2} sm={2} md={2} >
                         <Button onClick={() => this.props.handleDeleteFromCart()}
-                                bsSize='small' bsStyle='danger'>DEL</Button>
+                            bsSize='small'  ><span style={{ height: "20px" }} className="fa fa-trash"></span></Button>
                     </Col>
                 </Row>
-            </Panel>
+            </Panel >
         );
     }
 }

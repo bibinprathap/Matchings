@@ -12,8 +12,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "homepage":"https://github.com/bibinprathap/ShoppingCart.git",
+  "homepage": "https://github.com/bibinprathap/ShoppingCart.git",
   "dependencies": {
+    "babel-polyfill": "^6.26.0",
     "babel-preset-stage-1": "^6.24.1",
     "express": "^4.16.2",
     "material-ui": "^0.20.0",
