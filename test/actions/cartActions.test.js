@@ -1,7 +1,7 @@
 import { expect } from '../test_helper';
 import { createStore } from 'redux';
 import reducers from '../../src/reducers'
-import { UPDATE_ITEM_UNITS, CHANGE_ITEM_UNITS, DELETE_FROM_CART } from '../../src/actions/cartActions';
+import { UPDATE_ITEM_UNITS, CHANGE_ITEM_UNITS, DELETE_FROM_CART } from '../../src/actions/matchActions';
 
 const INIT_PRODUCTS = [
     { id: 1, title: 'Apples', description: 'some red apples', price: 30 },
@@ -9,7 +9,7 @@ const INIT_PRODUCTS = [
     { id: 3, title: 'Bananas', description: 'Some potassium for you', price: 20 }
 ];
 
-describe('CartActions', () => {
+describe('matchActions', () => {
     let store = createStore(reducers, { cart: [], products: INIT_PRODUCTS });
     it('addes 2 cart items, update units. Deletes 1 item. Has correct state', () => {
         let actionsPipeline = [

@@ -7,7 +7,7 @@ import logger from 'redux-logger';
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import ProductsList from "./components/productsList";
+import Matching from "./components/Matching";
 
 
 // store
@@ -15,5 +15,5 @@ const middleware = applyMiddleware(logger);
 const store = createStore(reducers, middleware);
 
 render(<Provider store={store}>
-    <ProductsList />
+    <Matching />
 </Provider>, document.getElementById('app'));
